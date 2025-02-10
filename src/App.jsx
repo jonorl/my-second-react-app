@@ -1,43 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import "./App.css";
-
-const COLORS = ["pink", "green", "blue", "yellow", "purple"];
-
-function App() {
-  const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
-  const [counter, setCounter] = useState(0)
-
-
-  const onButtonClick = (color) => () => {
-    setBackgroundColor(color);
-    color !== backgroundColor ? setCounter(counter + 1) : null
-
-};
-
+const App = () => {
   return (
-    <div
-      className="App"
-      style={{
-        backgroundColor,
-      }}
-    >
-      <h1>{counter}</h1>,
-      {COLORS.map((color) => (
-
-        <button
-          type="button"
-          key={color}
-          onClick={onButtonClick(color)}
-          className={backgroundColor === color ? "selected" : ""}
-        >
-          {color}
-
-        </button>
-      ))}
-
+    <div>
+      <h1>Hello from the main page of the app!</h1>
+      <p>Here are some examples of links to other pages</p>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/profile">Profile page</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
-}
+};
 
 export default App;
